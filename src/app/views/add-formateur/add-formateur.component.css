@@ -1,0 +1,47 @@
+/* Ajoutez ces styles dans un fichier CSS séparé */
+
+.container {
+    /* background: url('../../../assets/images1/login.jpg') no-repeat center center fixed; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .card {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-label {
+    color: #333;
+  }
+  
+  input.mat-input {
+    font-size: 16px;
+  }
+  
+  .error-field {
+    border-color: #e53935;
+  }
+  
+  .error-message {
+    color: #e53935;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  

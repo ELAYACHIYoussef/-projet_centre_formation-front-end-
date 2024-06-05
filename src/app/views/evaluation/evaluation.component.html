@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="card p-4">
+      <div class="text-center mb-4">
+          <h2 class="form-title">Votre avis est important pour nous</h2>
+      </div>
+      <form [formGroup]="evaluationForm" (ngSubmit)="submitForm()" class="evaluation-form">
+          <div class="form-group row align-items-center">
+              <label for="qualite_p" class="col-md-4 col-form-label">Qualité pédagogique:</label>
+              <div class="col-md-8">
+                  <mat-form-field appearance="outline" class="pr-4" fxFlex>
+                      <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]" class="icon-display" (click)="setRating('qualite_p', i)">
+                          {{ i <= evaluationForm.get('qualite_p')?.value ? 'star' : 'star_border' }}
+                      </mat-icon>
+                      <mat-hint align="end" *ngIf="evaluationForm.get('qualite_p')?.dirty && evaluationForm.get('qualite_p')?.invalid">
+                          Veuillez évaluer la qualité pédagogique.
+                      </mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="form-group row align-items-center">
+              <label for="rythme" class="col-md-4 col-form-label">Rythme:</label>
+              <div class="col-md-8">
+                  <mat-form-field>
+                      <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]" class="icon-display" (click)="setRating('rythme', i)">
+                          {{ i <= evaluationForm.get('rythme')?.value ? 'star' : 'star_border' }}
+                      </mat-icon>
+                      <mat-hint align="end" *ngIf="evaluationForm.get('rythme')?.dirty && evaluationForm.get('rythme')?.invalid">
+                          Veuillez évaluer le rythme.
+                      </mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="form-group row align-items-center">
+              <label for="scours" class="col-md-4 col-form-label">Support de cours:</label>
+              <div class="col-md-8">
+                  <mat-form-field>
+                      <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]" class="icon-display" (click)="setRating('scours', i)">
+                          {{ i <= evaluationForm.get('scours')?.value ? 'star' : 'star_border' }}
+                      </mat-icon>
+                      <mat-hint align="end" *ngIf="evaluationForm.get('scours')?.dirty && evaluationForm.get('scours')?.invalid">
+                          Veuillez évaluer le support de cours.
+                      </mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="form-group row align-items-center">
+              <label for="stp" class="col-md-4 col-form-label">Support de TP:</label>
+              <div class="col-md-8">
+                  <mat-form-field>
+                      <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]" class="icon-display" (click)="setRating('stp', i)">
+                          {{ i <= evaluationForm.get('stp')?.value ? 'star' : 'star_border' }}
+                      </mat-icon>
+                      <mat-hint align="end" *ngIf="evaluationForm.get('stp')?.dirty && evaluationForm.get('stp')?.invalid">
+                          Veuillez évaluer le support de TP.
+                      </mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="form-group row align-items-center">
+              <label for="maitrise" class="col-md-4 col-form-label">Maîtrise du sujet:</label>
+              <div class="col-md-8">
+                  <mat-form-field>
+                      <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]" class="icon-display" (click)="setRating('maitrise', i)">
+                          {{ i <= evaluationForm.get('maitrise')?.value ? 'star' : 'star_border' }}
+                      </mat-icon>
+                      <mat-hint align="end" *ngIf="evaluationForm.get('maitrise')?.dirty && evaluationForm.get('maitrise')?.invalid">
+                          Veuillez évaluer la maîtrise du sujet.
+                      </mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="form-group text-center mt-4">
+              <button type="submit" class="btn btn-primary" >Soumettre</button>
+          </div>
+      </form>
+  </div>
+</div>

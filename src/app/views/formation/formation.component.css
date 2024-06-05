@@ -1,0 +1,71 @@
+/* Ajoutez ces styles dans un fichier CSS séparé */
+.container {
+  /* background: url('../../../assets/images1/login.jpg') no-repeat center center fixed; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+.card {
+  width: 90%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+.form-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+  width: calc(48% - 10px);
+}
+
+.column-space {
+  width: 10px; /* Reduced space */
+}
+
+.row-space {
+  height: 15px; /* Reduced space */
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  color: #333;
+}
+input.mat-input {
+  font-size: 16px;
+  margin-top: 8px;
+}
+textarea.mat-input {
+  font-size: 16px;
+  margin-top: 8px;
+}
+.error-field {
+  border-color: #e53935;
+}
+.error-message {
+  color: #e53935;
+  font-size: 14px;
+  margin-top: 4px;
+}
+button {
+  margin-right: 8px;
+}

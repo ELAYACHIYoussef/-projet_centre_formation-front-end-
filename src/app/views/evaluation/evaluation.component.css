@@ -1,0 +1,69 @@
+/* styles.css (ou votre fichier de styles principal) */
+
+.evaluation-form {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: center;}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-display {
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+    color: #FFD700;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+mat-form-field {
+    width: 60% !important
+  }
+
+.submit-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}

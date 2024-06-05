@@ -1,0 +1,10 @@
+/* style.css (ou tout autre fichier de style) */
+.mat-dialog-container {
+    padding: 20px;
+  }
+  
+  .buttons-container {
+    margin-top: 20px;
+    text-align: right;
+  }
+  

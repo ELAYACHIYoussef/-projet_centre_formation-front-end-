@@ -1,0 +1,56 @@
+<div class="popup-container-with-scroll" [ngStyle]="{'width.px': popupWidth}" [class.dynamic-width]="popupWidth">
+  <mat-icon class="close-icon" (click)="closePopup()">cancel</mat-icon>
+  <h2 class="popup-title">Groupes de {{ data.formation.nom }}</h2>
+
+  <div *ngIf="data.formation.groupes && data.formation.groupes.length > 0" class="group-list">
+    <ul>
+      <li *ngFor="let groupe of data.formation.groupes" class="group-item">
+        <span class="group-id">Groupe {{ groupe.id }}</span>
+        <button mat-raised-button class="details" (click)="fetchInscriptions(groupe)">
+          Détails
+        </button>
+        <button mat-raised-button color="primary" class="send-feedback-button" (click)="sendFeedback(data.formation, groupe)">
+          Feedback
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!data.formation.groupes || data.formation.groupes.length === 0" class="no-groups">
+    Aucun groupe associé
+  </div>
+
+  <div *ngIf="individusList.length > 0"  class="table-container-with-scroll">
+    <table class="individus-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Date De Naissance</th>
+          <th>Ville</th>
+          <th>Telephone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let individu of individusList">
+          <td>{{ individu.nom }}</td>
+          <td>{{ individu.prenom }}</td>
+          <td>{{ individu.email }}</td>
+          <td>{{individu.dateNaissance}}</td>
+          <td>{{individu.ville}}</td>
+          <td>{{individu.telephone}}</td>
+          <td>
+            <button mat-icon-button color="primary" >
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

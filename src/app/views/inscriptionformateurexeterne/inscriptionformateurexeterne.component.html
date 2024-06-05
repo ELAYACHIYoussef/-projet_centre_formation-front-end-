@@ -1,0 +1,74 @@
+<div class="inscription-container">
+  <div class="card text-center p-4">
+    <h2 class="mb-4 text-center">Inscription des formateurs externes</h2>
+
+    <form [formGroup]="inscriptionFormateur" (ngSubmit)="inscriotionformateurexterne()" novalidate
+      class="d-flex flex-column align-items-center">
+
+      <div class="mb-3 w-100" >
+        <mat-form-field appearance="outline" class="w-100" style="width: 70%;">
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="Entrez votre nom" type="text" formControlName="name"
+            [ngClass]="{'error-field': inscriptionFormateur?.get('name')?.invalid && inscriptionFormateur?.get('name')?.touched }">
+          <div
+            *ngIf="inscriptionFormateur?.get('name')?.hasError('required') && inscriptionFormateur?.get('name')?.touched"
+            class="error-message">
+            Le nom est requis.
+          </div>
+          <div
+            *ngIf="inscriptionFormateur?.get('name')?.hasError('minlength') && inscriptionFormateur?.get('name')?.touched"
+            class="error-message">
+            Le nom doit contenir au moins 2 caractères.
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="mb-3 w-100">
+        <mat-form-field appearance="outline" class="w-100" style="width: 70%;">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Entrez votre email" type="email" formControlName="email"
+            [ngClass]="{'error-field': inscriptionFormateur?.get('email')?.invalid && inscriptionFormateur?.get('email')?.touched }">
+          <div
+            *ngIf="inscriptionFormateur?.get('email')?.hasError('required') && inscriptionFormateur?.get('email')?.touched"
+            class="error-message">
+            L'email est requis.
+          </div>
+          <div
+            *ngIf="inscriptionFormateur?.get('email')?.hasError('email') && inscriptionFormateur?.get('email')?.touched"
+            class="error-message">
+            L'email doit être valide.
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="mb-3 w-100">
+        <mat-form-field appearance="outline" class="w-100" style="width: 70%;">
+          <mat-label>Mots-clés</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Enter mots cles">
+            <mat-chip-row *ngFor="let mot of inscriptionFormateur?.get('mots_cles')?.value?.split(',') || []"
+              (removed)="removeMot(mot)" [editable]="true" (edited)="editMot(mot, $event)"
+              [aria-description]="'press enter to edit ' + mot">
+              {{ mot }}
+              <mat-icon matChipRemove (click)="removeMot(mot)">cancel</mat-icon>
+            </mat-chip-row>
+            <input matInput placeholder="Nouveau mot-clé..." [matChipInputFor]="chipGrid"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addMot($event)" />
+          </mat-chip-grid>
+          <div
+            *ngIf="inscriptionFormateur?.get('mots_cles')?.hasError('required') && inscriptionFormateur?.get('mots_cles')?.touched"
+            class="error-message">
+            Les mots-clés sont requis.
+          </div>
+          <div
+            *ngIf="inscriptionFormateur?.get('mots_cles')?.hasError('minlength') && inscriptionFormateur?.get('mots_cles')?.touched"
+            class="error-message">
+            Les mots-clés doivent contenir au moins 2 caractères.
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="mb-3 w-100">
+        <button class="btn btn-primary w-100 login-button" mat-raised-button color="primary">Valider</button>
+      </div>
+
+    </form>
+  </div>
+</div>

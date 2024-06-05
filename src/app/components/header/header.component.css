@@ -1,0 +1,68 @@
+#menuTitle {
+  font-size: medium;
+  margin-right: 20px;
+}
+.mat-sidenav {
+  background-color: #3F51B5;
+  width: 200px;
+}
+.side-nav-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.side-menu-item {
+  color: #fff;
+  display: flex;
+  margin-top: 20px;
+  justify-content: start;
+  text-decoration: none; 
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  text-align: start; 
+}
+.side-menu-item:hover {
+  background-color: #e4e2e2; /* Couleur de fond au survol des éléments du menu latéral */
+}
+.main-content {
+  margin: 20px;
+}
+.side-menu-item mat-icon {
+  margin-right: 8px; /* Marge à droite de l'icône pour séparation */
+}
+/* Styles pour la barre de navigation */
+.mat-toolbar.main-toolbar {
+  background-color: #3F51B5; /* Couleur de fond de la barre de navigation */
+  color: #fff; /* Couleur du texte dans la barre de navigation */
+}
+
+.menu-item-text {
+  margin-left: 10px; /* Ajustez la marge selon vos préférences */
+   /* Empêche le texte de retourner à la ligne */
+}
+/* Styles pour le menu latéral */
+.mat-sidenav.side-nav-items {
+  background-color: #f5f5f5;
+  color: #fff; /* Couleur de fond du menu latéral */
+}
+
+/* Styles pour l'espaceur du menu */
+.menu-spacer {
+  flex: 1; /* Espaceur flexible pour pousser les éléments à droite de la barre de navigation */
+}
+
+@media (min-width: 900px) {
+  #menuIcon {
+      display: none;
+  }
+
+  .mat-sidenav {
+      display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-menu-item {
+      display: none;
+  }
+}

@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="card text-center p-4">
+    <h2 class="mb-4 text-center">Connexion</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate class="d-flex flex-column align-items-center">
+
+      <div class="mb-3 w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input matInput placeholder="Enter your username" type="text" formControlName="username"
+            [ngClass]="{'error-field': loginForm?.get('username')?.invalid && loginForm?.get('username')?.touched }"
+          >
+          <div *ngIf="loginForm?.get('username')?.hasError('required')  && loginForm?.get('username')?.touched" class="error-message">
+            Le nom d'utilisateur est requis.
+          </div>
+          <div *ngIf="loginForm?.get('username')?.hasError('minlength')  && loginForm?.get('username')?.touched" class="error-message">
+            Le nom d'utilisateur doit contenir au moins 3 caractères.
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-3 w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput placeholder="Enter your password" [type]="showPassword ? 'password' : 'text'" formControlName="password"
+            [ngClass]="{'error-field-password': loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched }"
+          >
+          <div *ngIf="loginForm?.get('password')?.hasError('required') && loginForm?.get('password')?.touched" class="error-message-password">
+            Le mot de passe est requis.
+          </div>
+          <div *ngIf="loginForm?.get('password')?.hasError('maxlength') && loginForm?.get('password')?.touched" class="error-message-password">
+            Le mot de passe doit contenir moins de 15 caractères.
+          </div>
+          <div *ngIf="loginForm?.get('password')?.hasError('minlength') && loginForm?.get('password')?.touched" class="error-message-password">
+            Le mot de passe doit contenir au moins 6 caractères.
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-3 w-100">
+        <button class="btn btn-primary w-100 login-button" mat-raised-button color="primary">Se connecter</button>
+      </div>
+
+    </form>
+ 
+  </div>
+</div>

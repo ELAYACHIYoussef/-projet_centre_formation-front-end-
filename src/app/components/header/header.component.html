@@ -1,0 +1,97 @@
+<mat-toolbar color="primary" class="main-toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon" aria-label="Toggle menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <style>
+    .proexcel {
+      font-family: 'Arial', sans-serif;
+      
+      font-weight: bold;
+      display: inline-block;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: backgroundAnimation 5s infinite; /* 5s pour la durée de l'animation, infinite pour la boucle */
+    }
+  </style>
+  <span id="menuTitle" class="proexcel"><mat-icon>school</mat-icon>
+    ProExcel</span> 
+
+  <div class="top-menu">
+    <a mat-button routerLink="/home" class="top-menu-item" *ngIf="!isAdmin() && !isAssistant()"><mat-icon>home</mat-icon> Accueil</a>
+    <!-- <a mat-button routerLink="/addFormateur" *ngIf="isAdmin()" class="top-menu-item"><mat-icon>person_add</mat-icon> Ajouter Formateur</a> -->
+    <a mat-button routerLink="/allFormateur" *ngIf="isAdmin()"
+      class="top-menu-item"><mat-icon>people</mat-icon>Formateurs</a>
+    <!-- <a mat-button routerLink="/addformation" *ngIf="isAdmin()" class="top-menu-item"><mat-icon>add_box</mat-icon> Ajouter Formation</a> -->
+    <a mat-button routerLink="/showFormation"   *ngIf="isAdmin()" class="top-menu-item"><mat-icon>event</mat-icon>
+      Formations</a>
+    <a mat-button routerLink="/showEntreprise" *ngIf="isAdmin() || isAssistant()" class="top-menu-item">
+      <mat-icon>business</mat-icon> Entreprise
+    </a>
+    <a mat-button routerLink="/formateurexeterne" *ngIf="isAdmin()" class="top-menu-item">
+      <mat-icon>add_box</mat-icon><span> Formateurs externes</span>
+    </a>
+    <a mat-button routerLink="/testTraine" *ngIf="isAdmin() || isAssistant()" class="top-menu-item">
+      <mat-icon>add_box</mat-icon><span>Planification</span>
+    </a>
+    <a mat-button routerLink="/planifiactionformat" *ngIf="isFormateur()" class="top-menu-item">
+      <mat-icon>people</mat-icon><span>Mon Planification</span>
+    </a>
+  </div>
+  <span class="menu-spacer"></span>
+
+  <div class="top-menu">
+    <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" class="top-menu-item">
+      <mat-icon>account_circle</mat-icon> Connexion
+    </a>
+    <a mat-button routerLink="/joinus" class="top-menu-item" *ngIf="!isAdmin() && !isAssistant()"><mat-icon>how_to_reg</mat-icon>Rejoignez-nous</a>
+    <a mat-button *ngIf="isLoggedIn()" (click)="logout()" class="top-menu-item">
+      <mat-icon>exit_to_app</mat-icon> Deconnexion
+    </a>
+  </div>
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
+    <div class="side-nav-items">
+      <a mat-button routerLink="/home" class="side-menu-item" *ngIf="!isAdmin() && !isAssistant()">
+        <mat-icon>home</mat-icon> <span>Accueil</span>
+      </a>
+      <!-- <a  *ngIf="isAdmin()" mat-button routerLink="/addFormateur" class="side-menu-item">
+        <mat-icon>people</mat-icon> <span >Formateur</span>
+      </a> -->
+      <a mat-button routerLink="/allFormateur" *ngIf="isAdmin()" class="side-menu-item">
+        <mat-icon>list</mat-icon> <span>Formateurs</span>
+      </a>
+      <a mat-button routerLink="/showFormation" *ngIf="isAdmin()" class="side-menu-item"><mat-icon>event</mat-icon>
+        Formations</a>
+        <a mat-button routerLink="/showEntreprise" *ngIf="isAdmin() || isAssistant()" class="side-menu-item">
+          <mat-icon>business</mat-icon> Entreprise
+        </a>
+      <!-- <a mat-button routerLink="/addformation" *ngIf="isAdmin()" class="side-menu-item">
+        <mat-icon>add_box</mat-icon><span> Ajouter Formation</span>
+      </a> -->
+      <a mat-button routerLink="/formateurexeterne" *ngIf="isAdmin()" class="side-menu-item">
+        <mat-icon>add_box</mat-icon><span> Formateurs externes</span>
+      </a>
+      <a mat-button routerLink="/testTraine" *ngIf="isAdmin() || isAssistant()" class="side-menu-item">
+        <mat-icon>add_box</mat-icon><span>Planification</span>
+      </a>
+      <a mat-button routerLink="/joinus" class="side-menu-item" *ngIf="!isAdmin() && !isAssistant()"><mat-icon>how_to_reg</mat-icon>Rejoignez-nous</a>
+      <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" class="side-menu-item">
+        <mat-icon>account_circle</mat-icon> Connexion
+      </a>
+      <a mat-button *ngIf="isLoggedIn()" (click)="logout()" class="side-menu-item">
+        <mat-icon>exit_to_app</mat-icon> Deconnexion
+      </a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

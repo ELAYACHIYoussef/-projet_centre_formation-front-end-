@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <div class="card p-4">
+    <mat-icon>business</mat-icon>
+    <h2 class="form-title">Ajout d'Entreprise</h2>
+    <form [formGroup]="entrepriseForm" (ngSubmit)="addEntreprise()" novalidate>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Nom de l'entreprise</mat-label>
+          <input matInput placeholder="Nom" formControlName="name"
+            [ngClass]="{'error-field': entrepriseForm.get('name')?.invalid && entrepriseForm.get('name')?.touched }">
+          <div *ngIf="entrepriseForm.get('name')?.hasError('required') && entrepriseForm.get('name')?.touched"
+            class="error-message">
+            Le nom de l'entreprise est requis.
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Adresse</mat-label>
+          <input matInput placeholder="Adresse" formControlName="address"
+            [ngClass]="{'error-field': entrepriseForm.get('address')?.invalid && entrepriseForm.get('address')?.touched }">
+          <div *ngIf="entrepriseForm.get('address')?.hasError('required') && entrepriseForm.get('address')?.touched"
+            class="error-message">
+            L'adresse de l'entreprise est requise.
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Numéro de téléphone</mat-label>
+          <input matInput placeholder="Numéro de téléphone" formControlName="phoneNumber"
+            [ngClass]="{'error-field': entrepriseForm.get('phoneNumber')?.invalid && entrepriseForm.get('phoneNumber')?.touched }">
+          <div
+            *ngIf="entrepriseForm.get('phoneNumber')?.hasError('required') && entrepriseForm.get('phoneNumber')?.touched"
+            class="error-message">
+            Le numéro de téléphone de l'entreprise est requis.
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email"
+            [ngClass]="{'error-field': entrepriseForm.get('email')?.invalid && entrepriseForm.get('email')?.touched }">
+          <div *ngIf="entrepriseForm.get('email')?.hasError('required')  && entrepriseForm.get('email')?.touched "
+            class="error-message">
+            L'email de l'entreprise est requis.
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>URL</mat-label>
+          <input matInput placeholder="URL" formControlName="url"
+            [ngClass]="{'error-field': entrepriseForm.get('url')?.invalid && entrepriseForm.get('url')?.touched }">
+          <div *ngIf="entrepriseForm.get('url')?.hasError('required') && entrepriseForm.get('url')?.touched"
+            class="error-message">
+            L'URL de l'entreprise est requise.
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="button-group" align="end">
+        <button mat-stroked-button color="warn" type="button" (click)="entrepriseForm.reset()">
+          Effacer
+        </button>
+        <button mat-stroked-button color="primary" type="submit" *ngIf="isNewEntreprise">
+          Ajouter l'entreprise
+        </button>
+        <button mat-stroked-button color="primary" type="submit" *ngIf="!isNewEntreprise">
+          modifier la formation
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

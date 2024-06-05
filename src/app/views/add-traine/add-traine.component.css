@@ -1,0 +1,50 @@
+
+.full-width {
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  mat-datepicker-toggle {
+    cursor: pointer;
+  }
+  
+  .selected-dates {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

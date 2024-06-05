@@ -1,0 +1,3 @@
+.fc-event {
+    background-color: #3498db !important; /* !important est utilisé pour s'assurer que cette règle prend le dessus sur d'autres styles */
+  }

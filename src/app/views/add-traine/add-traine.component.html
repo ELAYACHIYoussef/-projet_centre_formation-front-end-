@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>{{ data.title ? 'Modifier une séance de formation' : 'Ajouter une séance de formation' }}</h1>
+
+  <div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>Titre</mat-label>
+        <input matInput placeholder="Titre" formControlName="title" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Nom de formation</mat-label>
+        <mat-select formControlName="formationName" required >
+          <mat-option *ngFor="let formation of formations" [value]="formation.id" >
+            {{ formation.nom }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Nom de formateur</mat-label>
+        <mat-select formControlName="formateurName" required>
+          <mat-option *ngFor="let formateur of formateurs" [value]="formateur.id">
+            {{ formateur.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-radio-group formControlName="selectedOptionValue">
+        <mat-radio-button value="entreprise">Entreprise</mat-radio-button>
+        <mat-radio-button value="groupe">Groupe</mat-radio-button>
+      </mat-radio-group>
+      
+      <mat-form-field class="full-width" *ngIf="form.get('selectedOptionValue')?.value === 'entreprise'">
+        <mat-label>Nom de l'entreprise</mat-label>
+        <mat-select formControlName="entrepriseName" required>
+          <mat-option *ngFor="let entreprise of entreprises" [value]="entreprise.id">
+            {{ entreprise.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field class="full-width" *ngIf="form.get('selectedOptionValue')?.value === 'groupe'">
+        <mat-label>ID de groupe</mat-label>
+        <mat-select formControlName="groupeId" required>
+          <mat-option *ngFor="let groupe of groupes" [value]="groupe.id">
+            {{ groupe.id }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+
+
+      <!-- Période sélectionnée -->
+      <p>Période sélectionnée :</p>
+      <p>Début : {{ selectedPeriod.start }}</p>
+      <p>Fin : {{ selectedPeriod.end }}</p>
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="onCancel()">Annuler</button>
+        <button mat-button type="submit" [mat-dialog-close]="true">{{ data.title ? 'Modifier' : 'Ajouter' }}</button>
+      </div>
+    </form>
+  </div>

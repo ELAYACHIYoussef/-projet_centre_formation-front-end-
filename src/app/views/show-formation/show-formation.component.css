@@ -1,0 +1,75 @@
+/* show-formation.component.css */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .mat-elevation-z8 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  .mat-col-actions {
+    width: 120px; 
+  }
+  
+  .mat-col-description {
+    max-width: 300px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .actions-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  button {
+    margin: 0 5px;
+  }
+  tr.mat-row:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+  }
+  tr.mat-header-row {
+    background-color: #2196f3;
+    color: white; 
+  }
+  tr.mat-row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  tr.mat-row:nth-child(even) {
+    background-color: #ffffff;
+  }
+  .spinnerT{
+    margin-right: 10px;
+  }.custom-button {
+    margin: 5px; 
+    font-size: 14px; 
+  }
+  .nested-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px; 
+  }
+  
+  .nested-table th, .nested-table td {
+    border: 1px solid #ddd; 
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .custom-button {
+    margin-right: 4px; 
+  }
+  

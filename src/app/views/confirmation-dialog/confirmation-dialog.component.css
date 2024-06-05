@@ -1,0 +1,46 @@
+/* Styles pour améliorer la boîte de dialogue de confirmation */
+.confirmation-dialog-container {
+    max-width: 400px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .mat-h1 {
+    color: #a11a47;
+    margin-bottom: 8px;
+  }
+  
+  .mat-dialog-content {
+    margin-bottom: 16px;
+  }
+  
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  
+  .mat-button-secondary {
+    margin-right: 8px;
+  }
+  
+  .mat-button-secondary:hover {
+    background-color: #ff4081;
+    color: white;
+  }
+  /* Ajouter ces styles dans votre fichier de styles globaux ou dans le composant spécifique */
+.cancel-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.confirm-button {
+  background-color: #e53935;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

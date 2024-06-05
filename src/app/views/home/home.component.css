@@ -1,0 +1,74 @@
+/* home.component.css */
+body {
+    margin: 0;
+  }
+  
+.formation-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: -8px; /* Compensez la marge avec une marge négative sur le conteneur */
+}
+  .formation-card {
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .formation-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .formation-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .formation-card p {
+    color: #555;
+  }
+  
+  .formation-card button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  
+  
+  .formation-card button:hover {
+    background-color: #2980b9;
+  }
+  /* home.component.css */
+
+  .formation-image {
+    max-width: 100%; /* Ajustez la taille selon vos besoins */
+    height: 80px;
+    margin-top: 10px; /* Espacement entre l'image et les autres détails */
+  }
+  .centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Ajustez la valeur selon vos besoins */
+  }
+  
+  .horizontal-form-group {
+    display: flex;
+    gap: 10px;
+  }
+
+
+.slider-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

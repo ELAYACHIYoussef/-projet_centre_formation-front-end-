@@ -1,0 +1,218 @@
+
+
+<div class="centered-container">
+  <section class="banner">
+    <div class="banner-wrapper-main"></div>
+    <div class="container">
+      <div class="row">
+        <div class="slider-wrapper">
+          <div class="box-01">
+            <div class="content">
+              <h1>ÉLARGISSEZ VOS CONNAISSANCES AVEC DES TUTEURS</h1>
+              <p>Découvrez l'excellence éducative dans un environnement dynamique et interactif. Chez <span style="color: blue;"><strong>Centre de Formation ProExcel</strong></span>, nous nous engageons à offrir une expérience d'apprentissage exceptionnelle pour vous aider à atteindre vos objectifs professionnels.</p>
+
+
+              <div class="btn-001">
+                <ul>
+                  <li><a href="#">COMMENCEZ MAINTENANT</a></li>
+                  <li><a href="javascript:void(0)" (click)="toggleShowAllCourses()">VOIR LES COURS</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="box-01">
+            <div class="slider-image">
+              <img src="../../../assets/images/slider/1.png" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="centered-container">
+  <form [formGroup]="filterForm" (ngSubmit)="filterFormations()">
+    <div class="horizontal-form-group">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Categorie</mat-label>
+          <mat-select formControlName="categorie" placeholder="Categorie">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Ville</mat-label>
+          <mat-select formControlName="ville" placeholder="Ville">
+            <mat-option *ngFor="let city of villes" [value]="city">{{ city }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button mat-stroked-button color="primary" type="submit">Filtrer les formations</button>
+    </div>
+  </form>
+</div>
+<div class="centered-container">
+  <div class="formation-container">
+    <div *ngIf="showAllCourses; else filteredCourses">
+      <div class="formation-card" *ngFor="let formation of formations" (click)="showDetails(formation)">
+        <h2>{{ formation.nom }}</h2>
+        <img [src]="formation.photos" alt="{{ formation.nom }} Image" class="formation-image">
+        <p>Durée : {{ formation.nombreHeur }} heures</p>
+        <p>Date : {{ formation.date | date: 'shortDate' }}</p>
+        <p>Ville : {{ formation.ville }}</p>
+        <p>Prix : {{ formation.cout }} dh</p>
+        <button mat-raised-button color="primary" [routerLink]="['/formationdetails']"
+                [queryParams]="{
+                  id: formation.id,
+                  nom: formation.nom,
+                  nombreHeur: formation.nombreHeur,
+                  programme: formation.programme,
+                  categorie: formation.categorie,
+                  cout: formation.cout,
+                  objectifs: formation.objectifs,
+                  ville: formation.ville,
+                  date: formation.date,
+                  photos: formation.photos
+                }">
+          Voir plus de détails
+        </button>
+      </div>
+    </div>
+    <ng-template #filteredCourses>
+      <div class="formation-cards" *ngFor="let formation of filteredFormations" (click)="showDetails(formation)">
+        <div class="formation-card">
+        <h2>{{ formation.nom }}</h2>
+        <img [src]="formation.photos" alt="{{ formation.nom }} Image" class="formation-image">
+        <p>Durée : {{ formation.nombreHeur }} heures</p>
+        <p>Date : {{ formation.date | date: 'shortDate' }}</p>
+        <p>Ville : {{ formation.ville }}</p>
+        <p>Prix : {{ formation.cout }} dh</p>
+        <button mat-raised-button color="primary" [routerLink]="['/formationdetails']"
+                [queryParams]="{
+                  id: formation.id,
+                  nom: formation.nom,
+                  nombreHeur: formation.nombreHeur,
+                  programme: formation.programme,
+                  categorie: formation.categorie,
+                  cout: formation.cout,
+                  objectifs: formation.objectifs,
+                  ville: formation.ville,
+                  date: formation.date,
+                  photos: formation.photos
+ }">
+          Voir plus de détails
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="itemsPerPage" [pageIndex]="pageNumber"
+              [length]="totalItems" (page)="loadPage($event)">
+</mat-paginator>
+
+<section class="bg-02">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-12">
+              <div class="cal-box">
+                <p>Notre centre de formation offre une expérience d'apprentissage exceptionnelle, visant à développer les compétences et les connaissances nécessaires pour réussir dans le monde professionnel. Grâce à notre équipe de formateurs qualifiés et à nos programmes personnalisés, nous sommes déterminés à accompagner nos apprenants dans leur parcours éducatif.</p>
+
+                        <ol>
+                            <li>
+                                <div class="_lk_bg_cd">
+                                    <div class="counting">{{ nombreFormationsPlanifiees }}</div>
+                                    <h5>Formations Planifiées</h5>
+                                  </div>
+                            </li>
+
+                            <li>
+                                <div class="_lk_bg_cd">
+                                    <div class="counting" data-count="130">{{totalIndividu}}</div>
+                                    <h5>Etudiants</h5>
+                                </div>
+                            </li>
+
+                        </ol>
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-12">
+            <div class="cal-box">
+                <img src="../../../assets/images/slider/2.png">
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+  <!-- ================**Team Section**================ -->
+
+  <!-- <section class="bg-03">
+    <div class="container">
+        <div class="row">
+            <div class="heading">
+                <h2>our team</h2>
+                <span></span>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="team-main-box">
+                    <img src="../../../assets/images/team/2.jpg">
+                    <div class="team-content-box">
+                        <h3>{{nomFormateur[0]}}</h3>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="team-main-box">
+                    <img src="../../../assets/images/team/4.jpg">
+                    <div class="team-content-box">
+                        <h3>{{nomFormateur[1]}}</h3>
+                        <b>Dveloper</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="team-main-box">
+                    <img src="../../../assets/images/team/3.jpg">
+                    <div class="team-content-box">
+                        <h3>{{nomFormateur[2]}}</h3>
+                        <b>SEO</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="team-main-box">
+                    <img src="../../../assets/images/team/1.jpg">
+                    <div class="team-content-box">
+                        <h3>{{nomFormateur[3]}}</h3>
+                        <b>Art Designer</b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="team-main-box">
+                    <img src="../../../assets/images/team/1.jpg">
+                    <div class="team-content-box">
+                        <h3>{{nomFormateur[4]}}</h3>
+                        <b>Art Designer</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- ================**Blog Section**================ -->
+
+
+<app-footer></app-footer>
+</div>

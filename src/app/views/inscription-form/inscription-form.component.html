@@ -1,0 +1,29 @@
+<div class="inscription-form">
+  <h3>Formulaire d'inscription</h3>
+  <form [formGroup]="inscriptionForm" class="inscription-form-container">
+    <mat-form-field class="inscription-form-field">
+      <input matInput placeholder="Nom" formControlName="nom">
+    </mat-form-field>
+    <mat-form-field class="inscription-form-field">
+      <input matInput placeholder="Prénom" formControlName="prenom">
+    </mat-form-field>
+    <mat-form-field class="inscription-form-field">
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="inscription-form-field">
+      <input matInput placeholder="ville" formControlName="ville">
+    </mat-form-field>
+    <mat-form-field class="inscription-form-field">
+      <input matInput placeholder="Téléphone" formControlName="telephone">
+    </mat-form-field>
+    <mat-form-field class="inscription-form-field">
+      <input matInput [matDatepicker]="picker" placeholder="Date de naissance" formControlName="dateNaissance">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div class="inscription-form-buttons">
+      <button type="submit" mat-raised-button color="primary" (click)="submitInscription()">Valider</button>
+      <button type="button" mat-raised-button color="warn" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>

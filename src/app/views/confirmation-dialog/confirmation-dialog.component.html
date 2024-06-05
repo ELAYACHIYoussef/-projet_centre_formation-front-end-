@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="mat-h1 mat-primary">Confirmation</h1>
+<div mat-dialog-content class="mat-body-1">
+  <p>{{ data.message }}</p>
+</div>
+<mat-divider></mat-divider> <!-- Ajouter une séparation -->
+<div mat-dialog-actions class="mat-dialog-actions-custom">
+  <button mat-button class="cancel-button" (click)="onNoClick()">
+    <mat-icon>cancel</mat-icon> Annuler
+  </button>
+  <button mat-button color="warn" [mat-dialog-close]="true" #confirmButton class="confirm-button">
+    <mat-icon>check_circle</mat-icon> OK
+  </button>
+</div>

@@ -1,0 +1,78 @@
+/* show-formation.component.css */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .mat-elevation-z8 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  .mat-col-actions {
+    width: 120px; /* Adjust the width as needed */
+  }
+  
+  .mat-col-description {
+    max-width: 300px; /* Adjust the max-width as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .actions-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Buttons inside actions cell */
+  button {
+    margin: 0 5px;
+  }
+  
+  /* Styling for hover effect on rows */
+  tr.mat-row:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+  }
+  
+  /* Styling for header row */
+  tr.mat-header-row {
+    background-color: #2196f3; /* Header background color */
+    color: white; /* Header text color */
+  }
+  
+  /* Styling for odd and even rows */
+  tr.mat-row:nth-child(odd) {
+    background-color: #f9f9f9; /* Odd row background color */
+  }
+  
+  tr.mat-row:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+.high-rating {
+  color: green; 
+  font-weight: bold; 
+}
+
+.medium-rating {
+  color: orange;
+  font-weight: bold; 
+}
+
+.low-rating {
+  color: red;
+  font-weight: bold; 
+}
+
+  
